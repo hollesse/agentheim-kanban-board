@@ -5,6 +5,8 @@ type: feature
 status: done
 depends_on: [infrastructure-002]
 completed: 2026-06-10
+commit: 02d867b
+Approved: 2026-06-10
 ---
 
 # Styleguide
