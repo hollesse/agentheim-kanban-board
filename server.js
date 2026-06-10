@@ -127,11 +127,87 @@ function applyInline(text) {
   return result;
 }
 
+function parseDependsOn(raw) {
+  if (!raw) return [];
+  const trimmed = raw.trim();
+  if (trimmed === '[]' || trimmed === '') return [];
+  // Strip surrounding brackets
+  const inner = trimmed.replace(/^\[/, '').replace(/\]$/, '').trim();
+  if (!inner) return [];
+  return inner.split(',').map(s => s.trim()).filter(Boolean);
+}
+
+function buildMetaSection(fm) {
+  const parts = { badges: [], rows: [] };
+
+  // type badge
+  const type = fm.type ? fm.type.trim() : '';
+  if (type) {
+    const badgeClass = type === 'spike'    ? 'badge--spike'
+                     : type === 'decision' ? 'badge--decision'
+                     : type === 'bug'      ? 'badge--bug'
+                     : type === 'chore'    ? 'badge--chore'
+                     : type === 'refactor' ? 'badge--refactor'
+                     : 'badge--feature';
+    parts.badges.push(`<span class="badge ${badgeClass}">${escHtml(type)}</span>`);
+  }
+
+  // status badge
+  const status = fm.status ? fm.status.trim() : '';
+  if (status) {
+    const laneClass = ['backlog', 'todo', 'doing', 'done'].includes(status) ? status : 'backlog';
+    parts.badges.push(`<span class="status-badge status-badge--${laneClass}">${escHtml(status)}</span>`);
+  }
+
+  // context row
+  const context = fm.context ? fm.context.trim() : '';
+  if (context) {
+    parts.rows.push(['context', `<span>${escHtml(context)}</span>`]);
+  }
+
+  // depends_on row
+  const deps = parseDependsOn(fm.depends_on);
+  if (deps.length > 0) {
+    const links = deps.map(id =>
+      `<a class="detail-meta-link" href="/task/${encodeURIComponent(id)}">${escHtml(id)}</a>`
+    ).join('');
+    parts.rows.push(['depends on', `<span class="detail-meta-links">${links}</span>`]);
+  }
+
+  // created row
+  const created = fm.created ? fm.created.trim() : '';
+  if (created) {
+    parts.rows.push(['created', `<span>${escHtml(created)}</span>`]);
+  }
+
+  // completed row
+  const completed = fm.completed ? fm.completed.trim() : '';
+  if (completed) {
+    parts.rows.push(['completed', `<span>${escHtml(completed)}</span>`]);
+  }
+
+  // If nothing to show, return empty string
+  if (parts.badges.length === 0 && parts.rows.length === 0) return '';
+
+  const badgesHtml = parts.badges.length > 0
+    ? `<div class="detail-meta-badges">${parts.badges.join('')}</div>`
+    : '';
+
+  const rowsHtml = parts.rows.length > 0
+    ? `<div class="detail-meta-grid">${parts.rows.map(([label, value]) =>
+        `<span class="detail-meta-label">${escHtml(label)}</span><div class="detail-meta-value">${value}</div>`
+      ).join('')}</div>`
+    : '';
+
+  return `<div class="detail-meta">${badgesHtml}${rowsHtml}</div>`;
+}
+
 function buildDetailPage(task) {
   const fm = task.fm;
   const titleRaw = fm.title ? fm.title.replace(/^["']|["']$/g, '') : (task.body.match(/^#\s+(.+)$/m) || [])[1] || fm.id || 'Task';
   const title = escHtml(titleRaw);
   const bodyHtml = mdToHtml(task.body);
+  const metaHtml = buildMetaSection(fm);
 
   const CSS_TOKENS = `
 /* ── Design Tokens ─────────────────────────────────────────────────────── */
@@ -191,6 +267,24 @@ body{font-family:var(--font-family);font-size:var(--font-size-base);background:v
 .cb{display:inline-block;width:1em;text-align:center;font-size:var(--font-size-sm)}
 .cb--checked{color:var(--color-done)}
 .cb--unchecked{color:var(--color-text-muted)}
+/* ── Badge variants (detail page) ──────────────────────────────────────── */
+.badge--chore   {background:#2a2a1a;color:#fde68a}
+.badge--refactor{background:#1a2a2a;color:#6ee7b7}
+/* ── Status badge ──────────────────────────────────────────────────────── */
+.status-badge{display:inline-flex;align-items:center;font-size:var(--font-size-xs);font-weight:600;letter-spacing:.04em;padding:.1em .5em;border-radius:var(--radius-sm);white-space:nowrap}
+.status-badge--backlog{background:#1c1c1f;color:var(--color-text-muted);border:1px solid var(--color-border)}
+.status-badge--todo   {background:#1e2f5a;color:#93c5fd}
+.status-badge--doing  {background:#3b2710;color:#fcd34d}
+.status-badge--done   {background:#14291f;color:#86efac}
+/* ── Detail meta section ────────────────────────────────────────────────── */
+.detail-meta{margin-bottom:var(--space-xl);padding-bottom:var(--space-lg);border-bottom:1px solid var(--color-border)}
+.detail-meta-badges{display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-sm);margin-bottom:var(--space-md)}
+.detail-meta-grid{display:grid;grid-template-columns:max-content 1fr;gap:var(--space-xs) var(--space-lg);align-items:baseline}
+.detail-meta-label{font-size:var(--font-size-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.detail-meta-value{font-size:var(--font-size-sm);color:var(--color-text-secondary)}
+.detail-meta-links{display:flex;flex-wrap:wrap;gap:var(--space-sm)}
+.detail-meta-link{color:#93c5fd;text-decoration:none;font-size:var(--font-size-sm)}
+.detail-meta-link:hover{text-decoration:underline}
 `;
 
   return `<!DOCTYPE html>
@@ -207,6 +301,7 @@ body{font-family:var(--font-family);font-size:var(--font-size-base);background:v
   <div class="detail-title">${title}</div>
   <div class="detail-id">${escHtml(fm.id || '')}</div>
 </div>
+${metaHtml}
 <div class="detail-body">
 ${bodyHtml}
 </div>
