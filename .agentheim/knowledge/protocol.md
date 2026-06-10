@@ -17,6 +17,29 @@ Newest entries on top.
 
 ---
 
+## 2026-06-10 -- Task verified and completed: board-002 - Structured frontmatter display
+
+**Type:** Work / Task completion
+**Task:** board-002 - Structured frontmatter display on detail page
+**Summary:** Detail page now shows type badge, coloured status badge, context label, depends_on as /task/<id> links, created/completed dates. Empty fields suppressed. Verification iteration 1 was false-positive (orchestrator uncommitted changes in diff); iteration 2 PASS.
+**Verification:** PASS (iteration 2 — iteration 1 false-positive)
+**Commit:** 663a439
+**Files changed:** 1
+**ADRs written:** none
+
+---
+
+## 2026-06-10 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 2 (first-try PASS: 1 [board-001], re-dispatched: 1 [board-002 false-positive], skipped: 0)
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 2
+
+---
+
 ## 2026-06-10 -- Batch started: [board-002]
 
 **Type:** Work / Batch start

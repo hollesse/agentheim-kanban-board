@@ -11,8 +11,8 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 1
-- **Done:** 1
+- **Doing:** 0
+- **Done:** 2
 <!-- task-counts:end -->
 
 ### Todo
@@ -21,11 +21,11 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
-- **board-002** — Structured frontmatter display on detail page — `doing/board-002-frontmatter-detail-display.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **board-002** — Structured frontmatter display on detail page — 2026-06-10 — `done/board-002-frontmatter-detail-display.md`
 - **board-001** — Task detail page — 2026-06-10 — `done/board-001-task-detail-page.md`
 <!-- done-list:end -->
 
