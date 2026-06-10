@@ -10,23 +10,23 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 <!-- task-counts:start -->
 - **Backlog:** 0
-- **Todo:** 1
+- **Todo:** 0
 - **Doing:** 1
-- **Done:** 0
+- **Done:** 1
 <!-- task-counts:end -->
 
 ### Todo
 <!-- todo-list:start -->
-- **infrastructure-002** — Walking skeleton: thin end-to-end slice through chosen stack — depends_on: [infrastructure-001] — `todo/infrastructure-002-walking-skeleton.md`
 <!-- todo-list:end -->
 
 ### Doing
 <!-- doing-list:start -->
-- **infrastructure-001** — Stack decision: runtime, server framework, frontend delivery, process lifecycle, plugin packaging — `doing/infrastructure-001-stack-decision.md`
+- **infrastructure-002** — Walking skeleton: thin end-to-end slice through chosen stack — `doing/infrastructure-002-walking-skeleton.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **infrastructure-001** — Stack decision: runtime, server framework, frontend delivery, process lifecycle, plugin packaging — 2026-06-10 — `done/infrastructure-001-stack-decision.md`
 <!-- done-list:end -->
 
 ### Backlog
