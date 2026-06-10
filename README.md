@@ -16,7 +16,8 @@ The bottleneck is friction, not motivation. One command removes it.
 ## Installation
 
 ```bash
-claude plugin add https://github.com/<your-github-username>/agentheim-kanban-board
+claude plugins marketplace add https://github.com/hollesse/agentheim-kanban-board
+claude plugins install agentheim-kanban-board
 ```
 
 ## Skills
