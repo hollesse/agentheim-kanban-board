@@ -5,6 +5,26 @@ Newest entries on top.
 
 ---
 
+## 2026-06-10 -- Task verified and completed: infrastructure-003 - First release
+
+**Type:** Work / Task completion
+**Task:** infrastructure-003 - First release: version bump to 1.0.0 and git tag
+**Summary:** version in .claude-plugin/plugin.json bumped to 1.0.0; annotated tag agentheim-kanban-board--v1.0.0 created pointing at HEAD. Note: tag was recreated by orchestrator after a housekeeping commit moved HEAD; verifier FAIL was a legitimate procedural issue, fixed directly.
+**Verification:** PASS (orchestrator-fixed after verifier FAIL)
+**Commit:** 6972e22
+**Files changed:** 1
+**ADRs written:** none
+
+---
+
+## 2026-06-10 -- Batch started: [plugin-001]
+
+**Type:** Work / Batch start
+**Tasks:** plugin-001 - Project README — what it is, how to install and update
+**Parallel:** no (1 worker)
+
+---
+
 ## 2026-06-10 -- Batch started: [infrastructure-003]
 
 **Type:** Work / Batch start

@@ -6,7 +6,7 @@ type: chore
 context: infrastructure
 created: 2026-06-10
 completed: 2026-06-10
-commit:
+commit: 6972e22
 depends_on: []
 blocks: []
 tags: [release, versioning]

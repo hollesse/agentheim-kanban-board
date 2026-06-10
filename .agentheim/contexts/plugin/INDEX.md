@@ -1,4 +1,4 @@
-# infrastructure — Index
+# plugin — Index
 
 Catalog of everything in this bounded context: tasks by status, ADRs scoped to this BC, research touching this BC, and concept synthesis pages.
 
@@ -11,8 +11,8 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 0
-- **Done:** 3
+- **Doing:** 1
+- **Done:** 0
 <!-- task-counts:end -->
 
 ### Todo
@@ -21,13 +21,11 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
+- **plugin-001** — Project README — what it is, how to install and update — `doing/plugin-001-project-readme.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
 <!-- done-list:start -->
-- **infrastructure-003** — First release: version bump to 1.0.0 and git tag — 2026-06-10 — `done/infrastructure-003-first-release.md`
-- **infrastructure-002** — Walking skeleton: thin end-to-end slice — server starts, reads .agentheim/, returns board — 2026-06-10 — `done/infrastructure-002-walking-skeleton.md`
-- **infrastructure-001** — Stack decision: runtime, server framework, frontend delivery, process lifecycle, plugin packaging — 2026-06-10 — `done/infrastructure-001-stack-decision.md`
 <!-- done-list:end -->
 
 ### Backlog
