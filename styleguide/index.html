@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Styleguide — Agentheim Kanban Board</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  /* ── Styleguide-only overrides ─────────────────────────────────────────── */
+  .sg-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .sg-header {
+    margin-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-xl);
+  }
+
+  .sg-header h1 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .sg-header p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .sg-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .sg-section-title {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .sg-subsection-title {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  /* Token swatches */
+  .sg-swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .sg-swatch {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .sg-swatch-color {
+    height: 3rem;
+  }
+
+  .sg-swatch-label {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-surface);
+  }
+
+  .sg-swatch-name {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    display: block;
+  }
+
+  .sg-swatch-hex {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    display: block;
+  }
+
+  /* Typography showcase */
+  .sg-type-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-lg);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .sg-type-meta {
+    min-width: 9rem;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  /* Spacing showcase */
+  .sg-space-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xs) 0;
+  }
+
+  .sg-space-bar {
+    background: var(--color-todo);
+    height: 0.5rem;
+    border-radius: var(--radius-sm);
+    opacity: 0.7;
+  }
+
+  .sg-space-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    min-width: 5rem;
+  }
+
+  /* Badge grid */
+  .sg-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  /* Board preview */
+  .sg-board-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+  @media (max-width: 900px) {
+    .sg-board-preview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sg-board-preview {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sg-page">
+
+  <!-- ── Page header ───────────────────────────────────────────────────── -->
+  <header class="sg-header">
+    <h1>Design System Styleguide</h1>
+    <p>Agentheim Kanban Board &mdash; tokens, components, and interactive states</p>
+  </header>
+
+  <!-- ── Colour tokens ─────────────────────────────────────────────────── -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Colour tokens</h2>
+
+    <h3 class="sg-subsection-title">Base palette</h3>
+    <div class="sg-swatch-grid">
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#0f0f11"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-bg</span>
+          <span class="sg-swatch-hex">#0f0f11</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#1c1c1f"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-surface</span>
+          <span class="sg-swatch-hex">#1c1c1f</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#242428"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-surface-hover</span>
+          <span class="sg-swatch-hex">#242428</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#27272a"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-border</span>
+          <span class="sg-swatch-hex">#27272a</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#fafafa"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-text-primary</span>
+          <span class="sg-swatch-hex">#fafafa</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#a1a1aa"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-text-secondary</span>
+          <span class="sg-swatch-hex">#a1a1aa</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#52525b"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-text-muted</span>
+          <span class="sg-swatch-hex">#52525b</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sg-subsection-title">Column accents</h3>
+    <div class="sg-swatch-grid">
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#52525b"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-backlog</span>
+          <span class="sg-swatch-hex">#52525b</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#2563eb"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-todo</span>
+          <span class="sg-swatch-hex">#2563eb</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#d97706"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-doing</span>
+          <span class="sg-swatch-hex">#d97706</span>
+        </div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background:#16a34a"></div>
+        <div class="sg-swatch-label">
+          <span class="sg-swatch-name">--color-done</span>
+          <span class="sg-swatch-hex">#16a34a</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Typography ────────────────────────────────────────────────────── -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Typography</h2>
+    <p style="font-size:var(--font-size-xs);color:var(--color-text-muted);margin-bottom:var(--space-md);">
+      Font stack: ui-monospace, Cascadia Code, Fira Code, JetBrains Mono, Menlo, Monaco
+    </p>
+
+    <div class="sg-type-row">
+      <span class="sg-type-meta">--font-size-xl &bull; 1.25rem</span>
+      <span style="font-size:var(--font-size-xl);font-weight:600;color:var(--color-text-primary);">Kanban Board</span>
+    </div>
+    <div class="sg-type-row">
+      <span class="sg-type-meta">--font-size-lg &bull; 1rem</span>
+      <span style="font-size:var(--font-size-lg);font-weight:600;color:var(--color-text-primary);">Column header</span>
+    </div>
+    <div class="sg-type-row">
+      <span class="sg-type-meta">--font-size-base &bull; 0.875rem</span>
+      <span style="font-size:var(--font-size-base);color:var(--color-text-primary);">Card title — implement user login flow</span>
+    </div>
+    <div class="sg-type-row">
+      <span class="sg-type-meta">--font-size-sm &bull; 0.75rem</span>
+      <span style="font-size:var(--font-size-sm);color:var(--color-text-secondary);">Badge and metadata text</span>
+    </div>
+    <div class="sg-type-row">
+      <span class="sg-type-meta">--font-size-xs &bull; 0.65rem</span>
+      <span style="font-size:var(--font-size-xs);color:var(--color-text-muted);">context tag &bull; task id &bull; sub-labels</span>
+    </div>
+  </section>
+
+  <!-- ── Spacing ───────────────────────────────────────────────────────── -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Spacing scale</h2>
+    <div class="sg-space-row">
+      <span class="sg-space-label">--space-xs · 4px</span>
+      <div class="sg-space-bar" style="width:4px"></div>
+    </div>
+    <div class="sg-space-row">
+      <span class="sg-space-label">--space-sm · 8px</span>
+      <div class="sg-space-bar" style="width:8px"></div>
+    </div>
+    <div class="sg-space-row">
+      <span class="sg-space-label">--space-md · 12px</span>
+      <div class="sg-space-bar" style="width:12px"></div>
+    </div>
+    <div class="sg-space-row">
+      <span class="sg-space-label">--space-lg · 16px</span>
+      <div class="sg-space-bar" style="width:16px"></div>
+    </div>
+    <div class="sg-space-row">
+      <span class="sg-space-label">--space-xl · 24px</span>
+      <div class="sg-space-bar" style="width:24px"></div>
+    </div>
+    <div class="sg-space-row">
+      <span class="sg-space-label">--space-2xl · 32px</span>
+      <div class="sg-space-bar" style="width:32px"></div>
+    </div>
+  </section>
+
+  <!-- ── Badges ────────────────────────────────────────────────────────── -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Badges</h2>
+    <h3 class="sg-subsection-title">Type badges</h3>
+    <div class="sg-badge-row">
+      <span class="badge badge--feature">feature</span>
+      <span class="badge badge--spike">spike</span>
+      <span class="badge badge--decision">decision</span>
+      <span class="badge badge--bug">bug</span>
+    </div>
+  </section>
+
+  <!-- ── Board: all column + card states ───────────────────────────────── -->
+  <section class="sg-section">
+    <h2 class="sg-section-title">Board — column and card states</h2>
+
+    <div class="sg-board-preview">
+
+      <!-- Backlog column — filled -->
+      <div class="column column--backlog">
+        <div class="column-header">
+          <span class="column-title">backlog</span>
+          <span class="column-count">3</span>
+        </div>
+        <div class="column-body">
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-context">design-system</span>
+              <span class="badge badge--feature">feature</span>
+            </div>
+            <span class="card-title">Implement token-based theming across all components</span>
+            <span class="card-id">design-system-002</span>
+          </div>
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-context">board</span>
+              <span class="badge badge--spike">spike</span>
+            </div>
+            <span class="card-title">Evaluate drag-and-drop libraries for card reordering</span>
+            <span class="card-id">board-004</span>
+          </div>
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-context">infrastructure</span>
+              <span class="badge badge--decision">decision</span>
+            </div>
+            <span class="card-title">Choose a persistence strategy for task state</span>
+            <span class="card-id">infra-007</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Todo column — filled -->
+      <div class="column column--todo">
+        <div class="column-header">
+          <span class="column-title">todo</span>
+          <span class="column-count">2</span>
+        </div>
+        <div class="column-body">
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-context">board</span>
+              <span class="badge badge--feature">feature</span>
+            </div>
+            <span class="card-title">Render four-column board layout from live task files</span>
+            <span class="card-id">board-001</span>
+          </div>
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-context">board</span>
+              <span class="badge badge--bug">bug</span>
+            </div>
+            <span class="card-title">Fix task count badge not updating on hot reload</span>
+            <span class="card-id">board-003</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doing column — single task in progress -->
+      <div class="column column--doing">
+        <div class="column-header">
+          <span class="column-title">doing</span>
+          <span class="column-count">1</span>
+        </div>
+        <div class="column-body">
+          <div class="card">
+            <div class="card-meta">
+              <span class="card-context">design-system</span>
+              <span class="badge badge--feature">feature</span>
+            </div>
+            <span class="card-title">Styleguide: tokens, components, and developer sign-off gate</span>
+            <span class="card-id">design-system-001</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Done column — empty state -->
+      <div class="column column--done">
+        <div class="column-header">
+          <span class="column-title">done</span>
+          <span class="column-count">0</span>
+        </div>
+        <div class="column-body">
+          <div class="empty-state">
+            <span class="empty-state-icon">&#x25a1;</span>
+            <span class="empty-state-label">No completed tasks yet</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Second row: show an empty backlog too, for contrast -->
+    <h3 class="sg-subsection-title" style="margin-top:var(--space-xl);">Empty column state (backlog)</h3>
+    <div style="max-width:260px;">
+      <div class="column column--backlog">
+        <div class="column-header">
+          <span class="column-title">backlog</span>
+          <span class="column-count">0</span>
+        </div>
+        <div class="column-body">
+          <div class="empty-state">
+            <span class="empty-state-icon">&#x25a1;</span>
+            <span class="empty-state-label">No tasks here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div><!-- /sg-page -->
+</body>
+</html>

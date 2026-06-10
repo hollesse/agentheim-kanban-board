@@ -74,10 +74,40 @@ function buildHtmlPage(tasks) {
 
   const columns = lanes.map(lane => {
     const laneTasks = tasks.filter(t => t.lane === lane);
-    const cards = laneTasks.map(t =>
-      `<div class="card"><span class="context">${escHtml(t.context)}</span><span class="title">${escHtml(t.title)}</span><span class="id">${escHtml(t.id)}</span></div>`
-    ).join('\n');
-    return `<div class="column"><h2>${lane}</h2>${cards}</div>`;
+    const typeClass = lane === 'backlog' ? 'badge--feature'
+                    : lane === 'todo'    ? 'badge--feature'
+                    : lane === 'doing'   ? 'badge--spike'
+                    : 'badge--decision';
+
+    const cards = laneTasks.length === 0
+      ? `<div class="empty-state">
+           <span class="empty-state-icon">&#x25a1;</span>
+           <span class="empty-state-label">No tasks</span>
+         </div>`
+      : laneTasks.map(t => {
+          const badgeClass = t.type === 'spike'    ? 'badge--spike'
+                           : t.type === 'decision' ? 'badge--decision'
+                           : t.type === 'bug'      ? 'badge--bug'
+                           : 'badge--feature';
+          return `<div class="card">
+  <div class="card-meta">
+    <span class="card-context">${escHtml(t.context)}</span>
+    ${t.type ? `<span class="badge ${badgeClass}">${escHtml(t.type)}</span>` : ''}
+  </div>
+  <span class="card-title">${escHtml(t.title)}</span>
+  <span class="card-id">${escHtml(t.id)}</span>
+</div>`;
+        }).join('\n');
+
+    return `<div class="column column--${lane}">
+  <div class="column-header">
+    <span class="column-title">${lane}</span>
+    <span class="column-count">${laneTasks.length}</span>
+  </div>
+  <div class="column-body">
+${cards}
+  </div>
+</div>`;
   }).join('\n');
 
   return `<!DOCTYPE html>
@@ -87,21 +117,89 @@ function buildHtmlPage(tasks) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kanban Board</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,sans-serif;background:#f4f4f5;padding:1rem}
-h1{font-size:1.4rem;margin-bottom:1rem;color:#18181b}
-.count{font-size:.9rem;color:#71717a;margin-left:.5rem}
-.board{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.column{background:#fff;border-radius:.5rem;padding:.75rem;min-height:4rem}
-.column h2{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#71717a;margin-bottom:.5rem}
-.card{background:#f9f9fb;border:1px solid #e4e4e7;border-radius:.375rem;padding:.5rem;margin-bottom:.5rem}
-.card .context{display:block;font-size:.7rem;color:#a1a1aa;margin-bottom:.2rem}
-.card .title{display:block;font-size:.8rem;color:#18181b;line-height:1.3}
-.card .id{display:block;font-size:.7rem;color:#a1a1aa;margin-top:.2rem}
+/* ── Design Tokens ─────────────────────────────────────────────────────── */
+:root{
+  --color-bg:#0f0f11;
+  --color-surface:#1c1c1f;
+  --color-surface-hover:#242428;
+  --color-border:#27272a;
+  --color-border-subtle:#202023;
+  --color-text-primary:#fafafa;
+  --color-text-secondary:#a1a1aa;
+  --color-text-muted:#52525b;
+  --color-backlog:#52525b;
+  --color-todo:#2563eb;
+  --color-doing:#d97706;
+  --color-done:#16a34a;
+  --font-family:ui-monospace,'Cascadia Code','Fira Code','JetBrains Mono',Menlo,Monaco,'Courier New',monospace;
+  --font-size-xs:0.65rem;
+  --font-size-sm:0.75rem;
+  --font-size-base:0.875rem;
+  --font-size-lg:1rem;
+  --font-size-xl:1.25rem;
+  --line-height-tight:1.2;
+  --line-height-normal:1.5;
+  --space-xs:0.25rem;
+  --space-sm:0.5rem;
+  --space-md:0.75rem;
+  --space-lg:1rem;
+  --space-xl:1.5rem;
+  --space-2xl:2rem;
+  --radius-sm:0.25rem;
+  --radius-md:0.375rem;
+  --radius-lg:0.5rem;
+  --shadow-card:0 1px 3px 0 rgba(0,0,0,.4),0 1px 2px -1px rgba(0,0,0,.4);
+  --shadow-column:0 2px 8px 0 rgba(0,0,0,.5);
+  --transition-fast:120ms ease;
+}
+/* ── Reset ─────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* ── Base ──────────────────────────────────────────────────────────────── */
+body{font-family:var(--font-family);font-size:var(--font-size-base);background:var(--color-bg);color:var(--color-text-primary);line-height:var(--line-height-normal);-webkit-font-smoothing:antialiased}
+/* ── Page header ───────────────────────────────────────────────────────── */
+.page-header{padding:var(--space-lg) var(--space-lg) 0;display:flex;align-items:baseline;gap:var(--space-md)}
+.page-header h1{font-size:var(--font-size-xl);font-weight:600;color:var(--color-text-primary);letter-spacing:-.02em}
+.task-count{font-size:var(--font-size-sm);color:var(--color-text-muted)}
+/* ── Board ─────────────────────────────────────────────────────────────── */
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-lg);padding:var(--space-lg);align-items:start}
+/* ── Column ────────────────────────────────────────────────────────────── */
+.column{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);display:flex;flex-direction:column;min-height:8rem;box-shadow:var(--shadow-column);overflow:hidden}
+.column-header{display:flex;align-items:center;justify-content:space-between;padding:var(--space-md) var(--space-md) var(--space-sm);border-bottom:1px solid var(--color-border-subtle)}
+.column-title{font-size:var(--font-size-sm);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-secondary)}
+.column-count{font-size:var(--font-size-xs);font-weight:500;color:var(--color-text-muted);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0 var(--space-xs);line-height:1.6;min-width:1.5em;text-align:center}
+.column-body{padding:var(--space-sm);display:flex;flex-direction:column;gap:var(--space-sm);flex:1}
+.column--backlog .column-header{border-top:2px solid var(--color-backlog)}
+.column--todo    .column-header{border-top:2px solid var(--color-todo)}
+.column--doing   .column-header{border-top:2px solid var(--color-doing)}
+.column--done    .column-header{border-top:2px solid var(--color-done)}
+.column--backlog .column-title{color:var(--color-backlog)}
+.column--todo    .column-title{color:var(--color-todo)}
+.column--doing   .column-title{color:var(--color-doing)}
+.column--done    .column-title{color:var(--color-done)}
+/* ── Card ──────────────────────────────────────────────────────────────── */
+.card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-sm) var(--space-md);box-shadow:var(--shadow-card);display:flex;flex-direction:column;gap:var(--space-xs)}
+.card:hover{background:var(--color-surface-hover);border-color:#3f3f46}
+.card-meta{display:flex;align-items:center;justify-content:space-between;gap:var(--space-xs)}
+.card-context{font-size:var(--font-size-xs);color:var(--color-text-muted);text-transform:lowercase;letter-spacing:.03em}
+.card-title{font-size:var(--font-size-base);font-weight:500;color:var(--color-text-primary);line-height:var(--line-height-tight);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.card-id{font-size:var(--font-size-xs);color:var(--color-text-muted);font-variant-numeric:tabular-nums}
+/* ── Badge ─────────────────────────────────────────────────────────────── */
+.badge{display:inline-flex;align-items:center;font-size:var(--font-size-xs);font-weight:600;letter-spacing:.04em;padding:.1em .5em;border-radius:var(--radius-sm);white-space:nowrap;flex-shrink:0}
+.badge--feature {background:#1e3a5f;color:#93c5fd}
+.badge--spike   {background:#3b1f5a;color:#c4b5fd}
+.badge--decision{background:#1f3a2a;color:#86efac}
+.badge--bug     {background:#3f1d1d;color:#fca5a5}
+/* ── Empty state ───────────────────────────────────────────────────────── */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-xl) var(--space-lg);gap:var(--space-xs);color:var(--color-text-muted);text-align:center;flex:1}
+.empty-state-icon{font-size:1.5rem;line-height:1;opacity:.4}
+.empty-state-label{font-size:var(--font-size-sm);color:var(--color-text-muted)}
 </style>
 </head>
 <body>
-<h1>Kanban Board<span class="count">${count} task${count === 1 ? '' : 's'}</span></h1>
+<header class="page-header">
+  <h1>Kanban Board</h1>
+  <span class="task-count">${count} task${count === 1 ? '' : 's'}</span>
+</header>
 <div class="board">
 ${columns}
 </div>
