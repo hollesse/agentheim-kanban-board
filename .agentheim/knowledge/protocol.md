@@ -5,6 +5,14 @@ Newest entries on top.
 
 ---
 
+## 2026-06-10 -- Batch started: [infrastructure-003]
+
+**Type:** Work / Batch start
+**Tasks:** infrastructure-003 - First release: version bump to 1.0.0 and git tag
+**Parallel:** no (1 worker)
+
+---
+
 ## 2026-06-10 -- Task verified and completed: board-001 - Task detail page
 
 **Type:** Work / Task completion
@@ -14,6 +22,15 @@ Newest entries on top.
 **Commit:** 85ebac1
 **Files changed:** 1
 **ADRs written:** none
+
+---
+
+## 2026-06-10 -- Model / Captured: infrastructure-003, plugin-001 - Release + README
+
+**Type:** Model / Capture
+**BC:** infrastructure (infrastructure-003), plugin (plugin-001)
+**Filed to:** todo
+**Summary:** infrastructure-003 bumpt Version auf 1.0.0 und setzt den Git-Tag für das erste Release. plugin-001 erstellt die README.md mit Installations- und Update-Anleitung; hängt von infrastructure-003 ab damit die Versionsnummer korrekt ist.
 
 ---
 

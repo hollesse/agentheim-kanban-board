@@ -11,7 +11,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 0
+- **Doing:** 1
 - **Done:** 2
 <!-- task-counts:end -->
 
@@ -21,6 +21,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
+- **infrastructure-003** — First release: version bump to 1.0.0 and git tag — `doing/infrastructure-003-first-release.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
