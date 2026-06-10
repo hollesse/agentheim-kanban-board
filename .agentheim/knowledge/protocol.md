@@ -5,6 +5,29 @@ Newest entries on top.
 
 ---
 
+## 2026-06-10 -- Task verified and completed: plugin-001 - Project README
+
+**Type:** Work / Task completion
+**Task:** plugin-001 - Project README — what it is, how to install and update
+**Summary:** README.md created at project root: purpose, prerequisites, installation, all four skills, update command, .agentheim/ path note.
+**Verification:** PASS (iteration 1)
+**Commit:** 52eff28
+**Files changed:** 1
+**ADRs written:** none
+
+---
+
+## 2026-06-10 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 2 (first-try PASS: 1 [plugin-001], orchestrator-fixed: 1 [infrastructure-003])
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 2 (+ 2 housekeeping commits)
+
+---
+
 ## 2026-06-10 -- Task verified and completed: infrastructure-003 - First release
 
 **Type:** Work / Task completion
