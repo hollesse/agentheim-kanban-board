@@ -1,0 +1,14 @@
+{
+  "name": "agentheim-kanban-board",
+  "owner": { "name": "Joshua Töpfer" },
+  "metadata": {
+    "description": "Kanban board for Agentheim projects"
+  },
+  "plugins": [
+    {
+      "name": "agentheim-kanban-board",
+      "source": "./",
+      "description": "Visualise .agentheim/ task files as a live board in the browser"
+    }
+  ]
+}
