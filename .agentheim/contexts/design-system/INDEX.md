@@ -11,8 +11,8 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 1
-- **Done:** 0
+- **Doing:** 0
+- **Done:** 1
 <!-- task-counts:end -->
 
 ### Todo
@@ -21,11 +21,11 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
-- **design-system-001** — Styleguide: tokens, components, and developer sign-off gate — `doing/design-system-001-styleguide.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **design-system-001** — Styleguide: tokens, components, and developer sign-off gate — 2026-06-10 — `done/design-system-001-styleguide.md`
 <!-- done-list:end -->
 
 ### Backlog

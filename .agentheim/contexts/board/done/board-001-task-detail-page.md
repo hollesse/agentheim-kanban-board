@@ -6,6 +6,7 @@ type: feature
 context: board
 created: 2026-06-10
 completed: 2026-06-10
+commit: 85ebac1
 commit:
 depends_on: [design-system-001]
 blocks: [board-002]

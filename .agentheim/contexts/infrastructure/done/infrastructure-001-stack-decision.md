@@ -4,6 +4,7 @@ title: "Stack decision: runtime, server framework, frontend delivery, process li
 type: decision
 status: done
 completed: 2026-06-10
+commit: 5813ee6
 depends_on: []
 ---
 

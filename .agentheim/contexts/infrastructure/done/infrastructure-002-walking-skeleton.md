@@ -5,6 +5,7 @@ type: spike
 status: done
 depends_on: [infrastructure-001]
 completed: 2026-06-10
+commit: 238e5ea
 ---
 
 # Walking skeleton

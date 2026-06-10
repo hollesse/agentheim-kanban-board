@@ -11,8 +11,8 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 1
-- **Done:** 1
+- **Doing:** 0
+- **Done:** 2
 <!-- task-counts:end -->
 
 ### Todo
@@ -21,11 +21,11 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
-- **infrastructure-002** — Walking skeleton: thin end-to-end slice through chosen stack — `doing/infrastructure-002-walking-skeleton.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **infrastructure-002** — Walking skeleton: thin end-to-end slice — server starts, reads .agentheim/, returns board — 2026-06-10 — `done/infrastructure-002-walking-skeleton.md`
 - **infrastructure-001** — Stack decision: runtime, server framework, frontend delivery, process lifecycle, plugin packaging — 2026-06-10 — `done/infrastructure-001-stack-decision.md`
 <!-- done-list:end -->
 
