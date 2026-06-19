@@ -9,7 +9,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 ## Tasks by status
 
 <!-- task-counts:start -->
-- **Backlog:** 0
+- **Backlog:** 1
 - **Todo:** 1
 - **Doing:** 0
 - **Done:** 6
@@ -36,6 +36,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Backlog
 <!-- backlog-list:start -->
+- **infrastructure-008** — Tag-triggered npm publish via GitHub Actions (OIDC trusted publishing) — 2026-06-19 — `backlog/infrastructure-008-gh-action-tag-publish.md`
 <!-- backlog-list:end -->
 
 ## ADRs scoped to this BC

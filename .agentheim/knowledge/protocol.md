@@ -5,6 +5,15 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Model / Captured: infrastructure-008 - Tag-triggered GH Action publish
+
+**Type:** Model / Capture
+**BC:** infrastructure
+**Filed to:** backlog
+**Summary:** Follow-on zu infrastructure-007: nach dem manuellen Erstpublish ein GitHub-Actions-Workflow, der auf `git push v*`-Tag triggert und via npm Trusted Publishing (OIDC, kein Token-Secret) publiziert — inkl. Provenance-Attestation. depends_on: [infrastructure-007]; -007 hat blocks: [infrastructure-008] erhalten. Pre-Setup auf npmjs.com (Trusted-Publisher-Eintrag) ist ein manueller Schritt vor Worker-Start.
+
+---
+
 ## 2026-06-19 -- Model / Refined + Promoted: infrastructure-007 - First npm publish
 
 **Type:** Model / Refine + Promote

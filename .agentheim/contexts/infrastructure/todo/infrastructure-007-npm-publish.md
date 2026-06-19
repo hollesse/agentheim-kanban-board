@@ -8,7 +8,7 @@ created: 2026-06-19
 completed:
 commit:
 depends_on: []
-blocks: []
+blocks: [infrastructure-008]
 tags: [npm, publish, distribution, packaging, release]
 related_adrs: [0005, 0008]
 related_research: []
@@ -69,7 +69,7 @@ Erstmaliges Veröffentlichen des Packages `agentheim-kanban-board` auf der npm-R
 - Post-publish-Smoke (Schritt 8) liefert nicht `1.0.0` → Worker rollt nicht zurück (das wäre `npm unpublish`, was npm in den ersten 72h nur eingeschränkt erlaubt), sondern dokumentiert das Problem und eskaliert
 
 ### Out of scope
-- **GitHub Actions / Automated Releases** — manueller Publish reicht
+- **GitHub Actions / Automated Releases** — manueller Erstpublish hier; CI-Pipeline ist [[infrastructure-008]] (Tag-triggered Publish via OIDC), das auf -007 aufsetzt
 - **Pre-Release-Channels** (`@next`, `@beta`)
 - **Code-Signing / Provenance-Statements** — npm-Provenance über GitHub OIDC wäre nice, aber nicht jetzt
 - **Automatisierter Versions-Sync** — Variante B (npm-version-Hook) bleibt für später, falls die manuelle Konvention schiefläuft
