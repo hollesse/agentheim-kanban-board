@@ -9,10 +9,10 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 ## Tasks by status
 
 <!-- task-counts:start -->
-- **Backlog:** 1
+- **Backlog:** 0
 - **Todo:** 0
 - **Doing:** 0
-- **Done:** 1
+- **Done:** 2
 <!-- task-counts:end -->
 
 ### Todo
@@ -25,12 +25,12 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **plugin-002** — Migrate skills to call CLI dispatcher (hybrid local/global) — 2026-06-19 — `done/plugin-002-skills-call-cli-dispatcher.md`
 - **plugin-001** — Project README — what it is, how to install and update — 2026-06-10 — `done/plugin-001-project-readme.md`
 <!-- done-list:end -->
 
 ### Backlog
 <!-- backlog-list:start -->
-- **plugin-002** — Migrate skills to call CLI dispatcher — 2026-06-19 — `backlog/plugin-002-skills-call-cli-dispatcher.md`
 <!-- backlog-list:end -->
 
 ## ADRs scoped to this BC

@@ -5,6 +5,54 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 (first-try PASS: 1 [plugin-002]) + 1 tracker closed (infrastructure-004)
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 2 (1 task + 1 housekeeping)
+**CLI introduction complete:** infrastructure-004 tracker closed; all three subtasks (-005 lifecycle module, -006 CLI binary, plugin-002 skills migration) done.
+
+---
+
+## 2026-06-19 -- Tracker closed: infrastructure-004 - CLI entry point
+
+**Type:** Work / Tracker closure
+**Task:** infrastructure-004 - CLI entry point (parent tracker)
+**Summary:** All three decomposition children landed: lib/lifecycle.js (b0cba5f), bin/kanban.js + package.json (86d44a4), skills migrated to hybrid dispatch (7387288). Moved to done/ with the final child's commit SHA stamped.
+
+---
+
+## 2026-06-19 -- Task verified and completed: plugin-002 - Skills call CLI dispatcher (hybrid)
+
+**Type:** Work / Task completion
+**Task:** plugin-002 - Migrate skills to call CLI dispatcher (hybrid local/global)
+**Summary:** All four kanban skill bodies collapsed to a ~7-line hybrid block (`command -v kanban` → CLI; else fallback to `node $PLUGIN_ROOT/bin/kanban.js`). 148 lines of duplicated lock-file bash removed. Frontmatter preserved byte-for-byte.
+**Verification:** PASS (iteration 1)
+**Commit:** 7387288
+**Files changed:** 5
+**ADRs written:** none
+
+---
+
+## 2026-06-19 -- Batch started: [plugin-002]
+
+**Type:** Work / Batch start
+**Tasks:** plugin-002 - Migrate skills to call CLI dispatcher (hybrid local/global)
+**Parallel:** no (1 worker)
+
+---
+
+## 2026-06-19 -- Model / Promoted: plugin-002 - Skills call CLI dispatcher
+
+**Type:** Model / Promote
+**BC:** plugin
+**From → To:** backlog → todo → doing (work started immediately)
+
+---
+
 ## 2026-06-19 -- Model / Refined: plugin-002 - Skills call CLI dispatcher
 
 **Type:** Model / Refine
