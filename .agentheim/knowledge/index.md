@@ -28,6 +28,7 @@ For BC-scoped artifacts, see each BC's `INDEX.md`.
 - **0006** — CLI as second delivery surface alongside plugin skills — 2026-06-19 — `knowledge/decisions/0006-cli-second-delivery-surface.md`
 - **0007** — Lifecycle module location and contract — 2026-06-19 — `knowledge/decisions/0007-lifecycle-module.md`
 - **0008** — Packaging: package.json with bin, zero runtime deps — 2026-06-19 — `knowledge/decisions/0008-packaging-bin-zero-deps.md`
+- **0009** — Version synchronisation between package.json and plugin.json — 2026-06-19 — `knowledge/decisions/0009-version-sync.md`
 <!-- adr-global:end -->
 
 ## Cross-BC research

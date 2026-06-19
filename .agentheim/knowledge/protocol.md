@@ -5,6 +5,42 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 ([infrastructure-007] — published live to npm as v1.0.0)
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Verification:** SKIPPED — non-standard split task; user handled the npm publish step, orchestrator verified by inspection (npm pack --dry-run, post-publish smoke via npx)
+**Commits:** 2 (1 prep + 1 housekeeping)
+**External effects:** `agentheim-kanban-board@1.0.0` published to npmjs.com; tag `v1.0.0` pushed to GitHub.
+
+---
+
+## 2026-06-19 -- Task completed: infrastructure-007 - First npm publish
+
+**Type:** Work / Task completion
+**Task:** infrastructure-007 - First npm publish: ship agentheim-kanban-board to the registry
+**Summary:** Package live at https://www.npmjs.com/package/agentheim-kanban-board as v1.0.0. Files allowlist verified via `npm pack --dry-run` (6 files, 12.5 kB). Post-publish smoke: `npx agentheim-kanban-board --version` → 1.0.0; `npx … status` in temp .agentheim project → "not running" exit 1, as spec'd. Git tag v1.0.0 pushed.
+**Verification:** SKIPPED — non-standard split (worker did prep only, user did publish, orchestrator did post-publish smoke + tag)
+**Commit:** 4296935 (prep) + housekeeping
+**Files changed:** 4 (package.json, README.md, contexts/infrastructure/README.md, ADR-0009)
+**ADRs written:** 0009-version-sync.md
+**Published:** https://www.npmjs.com/package/agentheim-kanban-board (v1.0.0)
+**Git tag:** v1.0.0
+
+---
+
+## 2026-06-19 -- Batch started: [infrastructure-007] (prep-only scope)
+
+**Type:** Work / Batch start
+**Tasks:** infrastructure-007 - First npm publish (prep portion only — npm publish itself stays with the user for 2FA-OTP interaction)
+**Parallel:** no (1 worker)
+**Pre-flight:** npm whoami=hollesse ✓; npm view agentheim-kanban-board=E404 (name free, no scope fallback needed)
+
+---
+
 ## 2026-06-19 -- Model / Captured: infrastructure-008 - Tag-triggered GH Action publish
 
 **Type:** Model / Capture

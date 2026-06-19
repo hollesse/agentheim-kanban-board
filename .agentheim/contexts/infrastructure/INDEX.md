@@ -10,14 +10,13 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 <!-- task-counts:start -->
 - **Backlog:** 1
-- **Todo:** 1
+- **Todo:** 0
 - **Doing:** 0
-- **Done:** 6
+- **Done:** 7
 <!-- task-counts:end -->
 
 ### Todo
 <!-- todo-list:start -->
-- **infrastructure-007** — First npm publish: ship agentheim-kanban-board to the registry — 2026-06-19 — `todo/infrastructure-007-npm-publish.md`
 <!-- todo-list:end -->
 
 ### Doing
@@ -26,6 +25,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **infrastructure-007** — First npm publish: ship agentheim-kanban-board to the registry (live as v1.0.0) — 2026-06-19 — `done/infrastructure-007-npm-publish.md`
 - **infrastructure-004** — CLI entry point: invoke kanban skills from the command line (tracker — closed after children done) — 2026-06-19 — `done/infrastructure-004-cli-entry-point.md`
 - **infrastructure-006** — CLI binary `kanban` with package.json + bin entry — 2026-06-19 — `done/infrastructure-006-cli-binary.md`
 - **infrastructure-005** — Extract lifecycle module (lib/lifecycle.js) — 2026-06-19 — `done/infrastructure-005-lifecycle-module.md`
