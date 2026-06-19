@@ -74,6 +74,18 @@ The CLI and the slash commands share the same lock file at `.agentheim/.kanban.l
 claude plugin update agentheim-kanban-board
 ```
 
+## Releasing
+
+Releases are published to npm automatically when a `v*` tag is pushed. The GitHub Action verifies version sync between `package.json`, `.claude-plugin/plugin.json`, and the git tag, then publishes via npm Trusted Publishing (OIDC) — no token secrets required, with provenance attestation.
+
+Release procedure:
+
+1. Bump the `version` field in **both** `package.json` and `.claude-plugin/plugin.json` to the same string.
+2. Commit on `main` (e.g., `chore: release v1.2.3`).
+3. Tag and push: `git tag -a v1.2.3 -m "Release 1.2.3" && git push --tags`.
+4. Watch the GitHub Actions tab — the `Publish to npm` workflow should go green.
+5. Verify the new version on [npmjs.com/package/agentheim-kanban-board](https://www.npmjs.com/package/agentheim-kanban-board) and confirm the provenance badge is present.
+
 ## How it works
 
 The server reads `.agentheim/contexts/` from the project root where Claude Code is running. There is no global state and no configuration file — the board reflects exactly the project you are currently working in.

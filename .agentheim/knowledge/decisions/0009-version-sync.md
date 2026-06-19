@@ -6,7 +6,7 @@ status: accepted
 date: 2026-06-19
 supersedes: []
 superseded_by: []
-related_tasks: [infrastructure-007]
+related_tasks: [infrastructure-007, infrastructure-008]
 ---
 
 # ADR-0009 — Version synchronisation between package.json and plugin.json
@@ -24,3 +24,12 @@ The project has two delivery surfaces: the npm package (`agentheim-kanban-board`
 - (+) Zero new tooling — one rule, applied at bump time.
 - (+) The convention is explicit and reviewable in any version-bump diff.
 - (−) Manual coordination is fallible. Mitigated by code review and by [[infrastructure-008]], which will add a CI verification step in the tag-triggered publish workflow that fails the release if the two versions disagree.
+
+## Update — 2026-06-19 ([[infrastructure-008]])
+
+The CI verification anticipated above is now in place. `.github/workflows/publish.yml` runs a `Verify version sync` step on every `v*` tag push that compares the git tag (with `v` stripped), `package.json#version`, and `.claude-plugin/plugin.json#version`, and fails the release if any of the three disagree. The convention is therefore enforced in two places:
+
+1. **Manually**, at bump time — the editor changes both files in the same commit (reviewable in the diff).
+2. **Automatically**, at tag-push time — the publish workflow refuses to release if drift is detected.
+
+The manual rule remains the source of truth; the CI step is the safety net.

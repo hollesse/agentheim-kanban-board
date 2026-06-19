@@ -1,0 +1,52 @@
+# Tag-triggered npm publish via Trusted Publishing (OIDC).
+# Pushing a tag matching v* runs this workflow, which verifies version sync
+# across the git tag, package.json, and .claude-plugin/plugin.json, then
+# publishes to npm with provenance attestation. No NPM_TOKEN secret required —
+# the npmjs.com Trusted Publisher config authorises this exact workflow.
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*'
+  # Manual reruns (e.g., re-publishing after a transient registry failure)
+  workflow_dispatch:
+
+permissions:
+  # Required for OIDC token exchange with npm
+  id-token: write
+  # Required for actions/checkout
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Verify version sync (tag vs package.json vs plugin.json)
+        run: |
+          set -euo pipefail
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          PLUGIN_VERSION=$(node -p "require('./.claude-plugin/plugin.json').version")
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ] || [ "$TAG_VERSION" != "$PLUGIN_VERSION" ]; then
+            echo "::error::Version mismatch — tag=$TAG_VERSION, package.json=$PKG_VERSION, plugin.json=$PLUGIN_VERSION"
+            exit 1
+          fi
+          echo "Version $TAG_VERSION verified across package.json, plugin.json, and git tag."
+
+      - name: Validate tarball contents (files allowlist)
+        run: npm pack --dry-run
+
+      # --access public is harmless for unscoped packages and a defensive
+      # default in case the name ever moves to a scoped form (@owner/name).
+      - name: Publish to npm with provenance
+        run: npm publish --provenance --access public
