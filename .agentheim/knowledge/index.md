@@ -25,6 +25,7 @@ For BC-scoped artifacts, see each BC's `INDEX.md`.
 - **0003** — Process lifecycle and lock file strategy — 2026-06-10 — `knowledge/decisions/0003-process-lifecycle-lock-file.md`
 - **0004** — File watching and live-reload strategy — 2026-06-10 — `knowledge/decisions/0004-file-watching-live-reload.md`
 - **0005** — Plugin packaging and dependency strategy — 2026-06-10 — `knowledge/decisions/0005-plugin-packaging-dependencies.md`
+- **0007** — Lifecycle module location and contract — 2026-06-19 — `knowledge/decisions/0007-lifecycle-module.md`
 <!-- adr-global:end -->
 
 ## Cross-BC research

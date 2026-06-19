@@ -5,6 +5,58 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 (first-try PASS: 1 [infrastructure-005])
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 1
+**Next unblocked:** infrastructure-006 (still in backlog — promote via `model` to dispatch)
+
+---
+
+## 2026-06-19 -- Task verified and completed: infrastructure-005 - Extract lifecycle module
+
+**Type:** Work / Task completion
+**Task:** infrastructure-005 - Extract lifecycle module (lib/lifecycle.js)
+**Summary:** lib/lifecycle.js extracted with start/stop/status/open + lock/browser helpers (built-ins only). server.js delegates lock-write shape but still owns the atomic listen-time write. Cross-platform browser-open (darwin/linux/win32) ships. ADR-0007 documents the contract.
+**Verification:** PASS (iteration 1)
+**Commit:** b0cba5f
+**Files changed:** 4
+**ADRs written:** 0007-lifecycle-module.md
+
+---
+
+## 2026-06-19 -- Batch started: [infrastructure-005]
+
+**Type:** Work / Batch start
+**Tasks:** infrastructure-005 - Extract lifecycle module (lib/lifecycle.js)
+**Parallel:** no (1 worker)
+
+---
+
+## 2026-06-19 -- Model / Refined: infrastructure-004 - CLI entry point
+
+**Type:** Model / Refine
+**BC:** infrastructure (split crosses into plugin)
+**Status after:** backlog (tracker — decomposed)
+**Summary:** Architect-Refinement. Packaging-Tension mit ADR-0005 aufgelöst (package.json mit leeren Deps ergänzt ADR-0005, kein Supersede). Lifecycle-Logik wird in `lib/lifecycle.js` extrahiert, Skills delegieren künftig an die CLI-Binary `kanban`. npm-Name `agentheim-kanban-board`, Publish-Scope: nur npm-link-ready.
+**Split into:** infrastructure-005 (lib/lifecycle.js, todo), infrastructure-006 (CLI-Binary, backlog, depends on -005), plugin-002 (Skills → CLI delegieren, backlog, depends on -005 + -006)
+**ADRs written:** none yet — 0006/0007/0008 werden beim Implementieren der jeweiligen Sub-Tasks geschrieben
+
+---
+
+## 2026-06-19 -- Model / Captured: infrastructure-004 - CLI entry point
+
+**Type:** Model / Capture
+**BC:** infrastructure
+**Filed to:** backlog
+**Summary:** CLI-Binary, das die vier Kanban-Skills (start/stop/status/open) parallel zu Claude Code aus dem Terminal aufrufbar macht. Geht ins backlog, weil offen ist: Packaging-Strategie (kollidiert mit ADR-0005), Distribution/Naming, Code-Sharing mit den Skills (Lifecycle-Logik aus SKILL.md in Node-Modul ziehen), cross-platform Browser-Open.
+
+---
+
 ## 2026-06-10 -- Task verified and completed: plugin-001 - Project README
 
 **Type:** Work / Task completion
