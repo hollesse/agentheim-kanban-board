@@ -5,6 +5,38 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 (first-try PASS: 1 [infrastructure-006])
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 1
+**Next unblocked:** plugin-002 (still in backlog — promote via `model` to dispatch)
+
+---
+
+## 2026-06-19 -- Task verified and completed: infrastructure-006 - CLI binary
+
+**Type:** Work / Task completion
+**Task:** infrastructure-006 - CLI binary `kanban` with package.json + bin entry
+**Summary:** bin/kanban.js dispatches start/stop/status/open via lib/lifecycle.js; package.json with bin entry + empty deps preserves ADR-0005's zero-install posture (ADR-0008 amends, does not supersede). Smoke-tested: --version, --help, status exit 1 when not running.
+**Verification:** PASS (iteration 1)
+**Commit:** 86d44a4
+**Files changed:** 7
+**ADRs written:** 0006-cli-second-delivery-surface.md, 0008-packaging-bin-zero-deps.md
+
+---
+
+## 2026-06-19 -- Batch started: [infrastructure-006]
+
+**Type:** Work / Batch start
+**Tasks:** infrastructure-006 - CLI binary `kanban` with package.json + bin entry
+**Parallel:** no (1 worker)
+
+---
+
 ## 2026-06-19 -- Model / Promoted: infrastructure-006 - CLI binary
 
 **Type:** Model / Promote

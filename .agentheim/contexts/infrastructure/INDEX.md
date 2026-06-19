@@ -10,14 +10,13 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 <!-- task-counts:start -->
 - **Backlog:** 1
-- **Todo:** 1
+- **Todo:** 0
 - **Doing:** 0
-- **Done:** 4
+- **Done:** 5
 <!-- task-counts:end -->
 
 ### Todo
 <!-- todo-list:start -->
-- **infrastructure-006** — CLI binary `kanban` with package.json + bin entry — 2026-06-19 — `todo/infrastructure-006-cli-binary.md`
 <!-- todo-list:end -->
 
 ### Doing
@@ -26,6 +25,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **infrastructure-006** — CLI binary `kanban` with package.json + bin entry — 2026-06-19 — `done/infrastructure-006-cli-binary.md`
 - **infrastructure-005** — Extract lifecycle module (lib/lifecycle.js) — 2026-06-19 — `done/infrastructure-005-lifecycle-module.md`
 - **infrastructure-003** — First release: version bump to 1.0.0 and git tag — 2026-06-10 — `done/infrastructure-003-first-release.md`
 - **infrastructure-002** — Walking skeleton: thin end-to-end slice — server starts, reads .agentheim/, returns board — 2026-06-10 — `done/infrastructure-002-walking-skeleton.md`

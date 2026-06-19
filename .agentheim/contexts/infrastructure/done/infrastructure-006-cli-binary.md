@@ -6,11 +6,11 @@ type: feature
 context: infrastructure
 created: 2026-06-19
 completed: 2026-06-19
-commit:
+commit: 86d44a4
 depends_on: [infrastructure-005]
 blocks: [plugin-002]
 tags: [cli, packaging, distribution]
-related_adrs: [0005]
+related_adrs: [0005, 0006, 0008]
 related_research: []
 prior_art: []
 ---
