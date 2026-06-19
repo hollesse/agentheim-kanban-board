@@ -6,6 +6,24 @@
   "bin": {
     "kanban": "./bin/kanban.js"
   },
+  "files": [
+    "server.js",
+    "lib/",
+    "bin/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "prepublishOnly": "node bin/kanban.js --version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollesse/agentheim-kanban-board.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hollesse/agentheim-kanban-board/issues"
+  },
+  "homepage": "https://github.com/hollesse/agentheim-kanban-board#readme",
   "engines": {
     "node": ">=18"
   },

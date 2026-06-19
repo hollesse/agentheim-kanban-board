@@ -34,6 +34,8 @@ Exported by `lib/lifecycle.js` (see [ADR-0007](../../knowledge/decisions/0007-li
 Exposed via the `kanban` CLI binary at `bin/kanban.js` (see [ADR-0006](../../knowledge/decisions/0006-cli-second-delivery-surface.md) and [ADR-0008](../../knowledge/decisions/0008-packaging-bin-zero-deps.md)):
 - `kanban start | stop | status | open` — terminal-facing second delivery surface; both CLI and plugin skills consume the same lifecycle module.
 
+Distributed via npm as `agentheim-kanban-board` (`npm install -g`). The package version in `package.json` and the plugin version in `.claude-plugin/plugin.json` MUST be bumped together — see [ADR-0009](../../knowledge/decisions/0009-version-sync.md).
+
 ## Relationships with other contexts
 - **Shared kernel with:** plugin, board — provides the runtime and build environment both depend on
 

@@ -33,9 +33,19 @@ claude plugins install agentheim-kanban-board
 
 The plugin also ships a terminal CLI, `kanban`, that exposes the same four lifecycle operations as the slash-command skills. Use it when you want to start, stop, or check the board without Claude Code running.
 
-### Install
+The CLI is opt-in — plugin users who only use the slash commands need to install nothing. Both install paths below require Node.js 18+ and pull in zero runtime dependencies.
 
-The CLI is opt-in — plugin users who only use the slash commands need to install nothing. To put `kanban` on your PATH, clone the plugin repo and run `npm link` in it:
+### Install (npm, recommended)
+
+```bash
+npm install -g agentheim-kanban-board
+```
+
+This puts the `kanban` binary on your PATH globally. Use this if you just want the CLI.
+
+### Install from source
+
+For plugin developers (or to work against an unreleased version), clone the repo and run `npm link`:
 
 ```bash
 git clone https://github.com/hollesse/agentheim-kanban-board
@@ -43,7 +53,7 @@ cd agentheim-kanban-board
 npm link
 ```
 
-This requires Node.js 18+. There are no runtime dependencies; `npm link` only creates the symlink for the `kanban` binary.
+`npm link` only creates a symlink for the `kanban` binary; no `node_modules` are installed.
 
 ### Usage
 
