@@ -1,6 +1,6 @@
 {
   "name": "agentheim-kanban-board",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Kanban board for Agentheim projects: visualise .agentheim/ task files as a live board in the browser",
   "main": "server.js",
   "bin": {
@@ -32,6 +32,11 @@
   "author": {
     "name": "Joshua Töpfer"
   },
-  "keywords": ["agentheim", "kanban", "ddd", "tasks"],
+  "keywords": [
+    "agentheim",
+    "kanban",
+    "ddd",
+    "tasks"
+  ],
   "dependencies": {}
 }
