@@ -3,10 +3,10 @@
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
+const lifecycle = require('./lib/lifecycle');
 
 // CWD is assumed to be the project root (where .agentheim/ lives)
 const ROOT = process.cwd();
-const LOCK_FILE = path.join(ROOT, '.agentheim', '.kanban.lock');
 const CONTEXTS_DIR = path.join(ROOT, '.agentheim', 'contexts');
 
 // ── Task parsing ────────────────────────────────────────────────────────────
@@ -559,27 +559,18 @@ function startOnPort(port) {
   });
 }
 
-// ── Lock file ────────────────────────────────────────────────────────────────
+// ── Lock file (delegated to lib/lifecycle for shape + path) ─────────────────
 
 function writeLockFile(port) {
-  const lock = {
-    pid: process.pid,
-    port,
-    started: new Date().toISOString(),
-  };
   try {
-    fs.writeFileSync(LOCK_FILE, JSON.stringify(lock, null, 2), 'utf8');
+    lifecycle.writeLock(ROOT, { pid: process.pid, port });
   } catch (err) {
     console.error('Warning: could not write lock file:', err.message);
   }
 }
 
 function cleanupLockFile() {
-  try {
-    if (fs.existsSync(LOCK_FILE)) {
-      fs.unlinkSync(LOCK_FILE);
-    }
-  } catch (_) {}
+  lifecycle.deleteLock(ROOT);
 }
 
 process.on('SIGTERM', () => { cleanupLockFile(); process.exit(0); });
