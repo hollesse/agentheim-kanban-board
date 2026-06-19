@@ -5,6 +5,16 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Model / Refined + Promoted: infrastructure-007 - First npm publish
+
+**Type:** Model / Refine + Promote
+**BC:** infrastructure
+**Status after:** todo
+**Summary:** Architect-Refinement der 5 offenen Punkte: (1) `files`-Allowlist mit 5 expliziten Pfaden statt `.npmignore`-Denylist; (2) manuelle Versions-Sync-Konvention via ADR-0009, kein Hook; (3) interaktives 2FA-OTP, Fallback `@hollesse/agentheim-kanban-board` falls Name belegt; (4) direkt `latest` mit `npm pack --dry-run`-Gate; (5) README-CLI-Sektion umstrukturieren (npm primär, from-source sekundär). Plus: `prepublishOnly`-Script, `repository`/`bugs`/`homepage`-Felder. Direkt nach todo promoted — todo-ready, alle externen Unknowns von der Worker-Outline mit Eskalation abgefangen.
+**ADRs to write while implementing:** 0009-version-sync.md (global scope)
+
+---
+
 ## 2026-06-19 -- Model / Captured: infrastructure-007 - First npm publish
 
 **Type:** Model / Capture
