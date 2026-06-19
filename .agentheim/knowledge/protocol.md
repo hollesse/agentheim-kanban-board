@@ -5,6 +5,30 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 (first-try PASS: 1, re-dispatched: 0, skipped: 0)
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 1
+
+---
+
+## 2026-06-19 -- Task verified and completed: board-003 - Sort Done column by completion time descending
+
+**Type:** Work / Task completion
+**Task:** board-003 - Sort Done column by completion time descending
+**Summary:** Done column cards now appear newest-first via a pure `sortDoneColumn` function in `lib/sort-done-column.js`; undated tasks fall stably to the bottom; other columns unaffected.
+**Verification:** PASS (iteration 1)
+**Commit:** 3a88607
+**Files changed:** 4
+**Tests added:** 5
+**ADRs written:** none
+
+---
+
 ## 2026-06-19 -- Batch started: [board-003]
 
 **Type:** Work / Batch start
