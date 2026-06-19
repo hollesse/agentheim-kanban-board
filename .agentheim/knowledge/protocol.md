@@ -5,6 +5,14 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Model / Promoted: infrastructure-006 - CLI binary
+
+**Type:** Model / Promote
+**BC:** infrastructure
+**From → To:** backlog → todo
+
+---
+
 ## 2026-06-19 -- Work session ended
 
 **Type:** Work / Session end

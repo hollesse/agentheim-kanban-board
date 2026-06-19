@@ -9,14 +9,15 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 ## Tasks by status
 
 <!-- task-counts:start -->
-- **Backlog:** 2
-- **Todo:** 0
+- **Backlog:** 1
+- **Todo:** 1
 - **Doing:** 0
 - **Done:** 4
 <!-- task-counts:end -->
 
 ### Todo
 <!-- todo-list:start -->
+- **infrastructure-006** — CLI binary `kanban` with package.json + bin entry — 2026-06-19 — `todo/infrastructure-006-cli-binary.md`
 <!-- todo-list:end -->
 
 ### Doing
@@ -34,7 +35,6 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 ### Backlog
 <!-- backlog-list:start -->
 - **infrastructure-004** — CLI entry point: invoke kanban skills from the command line (tracker — decomposed into 005/006/plugin-002) — 2026-06-19 — `backlog/infrastructure-004-cli-entry-point.md`
-- **infrastructure-006** — CLI binary `kanban` with package.json + bin entry — 2026-06-19 — `backlog/infrastructure-006-cli-binary.md`
 <!-- backlog-list:end -->
 
 ## ADRs scoped to this BC
