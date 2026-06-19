@@ -12,7 +12,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 - **Backlog:** 0
 - **Todo:** 0
 - **Doing:** 0
-- **Done:** 2
+- **Done:** 3
 <!-- task-counts:end -->
 
 ### Todo
@@ -25,6 +25,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **board-003** — Sort Done column by completion time descending — 2026-06-19 — `done/board-003-sort-done-column-by-completion-desc.md`
 - **board-002** — Structured frontmatter display on detail page — 2026-06-10 — `done/board-002-frontmatter-detail-display.md`
 - **board-001** — Task detail page — 2026-06-10 — `done/board-001-task-detail-page.md`
 <!-- done-list:end -->

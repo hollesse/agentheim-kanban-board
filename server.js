@@ -4,6 +4,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const lifecycle = require('./lib/lifecycle');
+const { sortDoneColumn } = require('./lib/sort-done-column');
 
 // CWD is assumed to be the project root (where .agentheim/ lives)
 const ROOT = process.cwd();
@@ -338,6 +339,7 @@ function readTasksFromDisk() {
             status: fm.status || lane,
             lane,
             context,
+            completed: fm.completed ? fm.completed.trim() : null,
           });
         } catch (_) {
           // Skip unreadable files
@@ -356,7 +358,8 @@ function buildHtmlPage(tasks) {
   const lanes = ['backlog', 'todo', 'doing', 'done'];
 
   const columns = lanes.map(lane => {
-    const laneTasks = tasks.filter(t => t.lane === lane);
+    const rawLaneTasks = tasks.filter(t => t.lane === lane);
+    const laneTasks = lane === 'done' ? sortDoneColumn(rawLaneTasks) : rawLaneTasks;
     const typeClass = lane === 'backlog' ? 'badge--feature'
                     : lane === 'todo'    ? 'badge--feature'
                     : lane === 'doing'   ? 'badge--spike'

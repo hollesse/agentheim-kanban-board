@@ -5,6 +5,23 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Batch started: [board-003]
+
+**Type:** Work / Batch start
+**Tasks:** board-003 - Sort Done column by completion time descending
+**Parallel:** no (1 worker)
+
+---
+
+## 2026-06-19 -- Model / Captured: board-003 - Sort Done column by completion time descending
+
+**Type:** Model / Capture
+**BC:** board
+**Filed to:** todo
+**Summary:** Done column cards should be sorted newest-first by the `completed` frontmatter field; tasks without a completion date fall to the bottom.
+
+---
+
 ## 2026-06-19 -- Task captured + completed inline: infrastructure-009 - Release script
 
 **Type:** Model + Work / Inline completion
