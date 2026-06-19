@@ -6,7 +6,7 @@ type: refactor
 context: infrastructure
 created: 2026-06-19
 completed: 2026-06-19
-commit: 73a3313
+commit: b0cba5f
 depends_on: []
 blocks: [infrastructure-006, plugin-002]
 tags: [refactor, lifecycle, lock-file, cross-platform]
