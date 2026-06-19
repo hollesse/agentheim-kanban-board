@@ -31,46 +31,19 @@ jobs:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
 
-      # TEMP DEBUG — to be removed after Trusted Publishing flow is verified.
-      # npm Trusted Publishing requires npm CLI >= 11.5.1. If the bundled npm
-      # is older, we upgrade in place.
+      # npm Trusted Publishing requires npm CLI >= 11.5.1. GitHub-hosted
+      # runners may ship an older bundled npm (10.x on Node 22 as of 2026-06);
+      # this step bumps to latest in place. Verified during -008 smoke that
+      # without this, publish fails with a misleading 404 on PUT.
       - name: Ensure npm >= 11.5.1 (for Trusted Publishing)
         run: |
           NPM_VERSION=$(npm --version)
-          echo "Bundled npm version: $NPM_VERSION"
           REQUIRED="11.5.1"
           if [ "$(printf '%s\n' "$REQUIRED" "$NPM_VERSION" | sort -V | head -n1)" != "$REQUIRED" ]; then
-            echo "Upgrading npm to latest…"
+            echo "Bundled npm $NPM_VERSION < $REQUIRED — upgrading."
             npm install -g npm@latest
-            echo "New npm version: $(npm --version)"
           fi
-
-      # TEMP DEBUG — dumps the OIDC claims that npm would receive so we can
-      # diff them against the Trusted Publisher config. Remove once the
-      # publish flow is verified working end-to-end.
-      - name: Debug OIDC claims (audience=npm:registry.npmjs.org)
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const token = await core.getIDToken('npm:registry.npmjs.org')
-            const payload = JSON.parse(
-              Buffer.from(token.split('.')[1], 'base64').toString()
-            )
-            // Don't print the full token — only the safe claim fields.
-            const safe = {
-              iss: payload.iss,
-              aud: payload.aud,
-              sub: payload.sub,
-              repository: payload.repository,
-              repository_owner: payload.repository_owner,
-              workflow_ref: payload.workflow_ref,
-              ref: payload.ref,
-              event_name: payload.event_name,
-              environment: payload.environment,
-              job_workflow_ref: payload.job_workflow_ref,
-            }
-            core.info('OIDC claims sent to npm:')
-            core.info(JSON.stringify(safe, null, 2))
+          echo "Using npm $(npm --version)"
 
       - name: Verify version sync (tag vs package.json vs plugin.json)
         run: |
