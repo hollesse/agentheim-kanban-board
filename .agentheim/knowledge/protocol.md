@@ -5,6 +5,15 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Model / Captured: infrastructure-007 - First npm publish
+
+**Type:** Model / Capture
+**BC:** infrastructure
+**Filed to:** backlog
+**Summary:** Erstmaliges Veröffentlichen von `agentheim-kanban-board` auf npm, damit `npm install -g agentheim-kanban-board` der offizielle Install-Pfad wird. Geht ins backlog — offene Entscheidungen: Tarball-Scope (`files`-Allowlist), Versions-Koordination zwischen `package.json` und `.claude-plugin/plugin.json`, Auth-Workflow (2FA + Name-Verfügbarkeitscheck), README-Erweiterung um den zweiten Install-Pfad.
+
+---
+
 ## 2026-06-19 -- Work session ended
 
 **Type:** Work / Session end

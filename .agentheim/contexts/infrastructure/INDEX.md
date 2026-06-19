@@ -9,7 +9,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 ## Tasks by status
 
 <!-- task-counts:start -->
-- **Backlog:** 0
+- **Backlog:** 1
 - **Todo:** 0
 - **Doing:** 0
 - **Done:** 6
@@ -35,6 +35,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Backlog
 <!-- backlog-list:start -->
+- **infrastructure-007** — First npm publish: ship agentheim-kanban-board to the registry — 2026-06-19 — `backlog/infrastructure-007-npm-publish.md`
 <!-- backlog-list:end -->
 
 ## ADRs scoped to this BC
