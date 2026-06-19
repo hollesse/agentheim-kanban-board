@@ -6,7 +6,7 @@ type: feature
 context: plugin
 created: 2026-06-19
 completed: 2026-06-19
-commit:
+commit: 4fb8c01
 depends_on: []
 blocks: []
 tags: [skills, dispatch, version-check, hybrid-dispatch]

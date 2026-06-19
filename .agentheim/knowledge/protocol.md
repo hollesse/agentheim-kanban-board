@@ -5,6 +5,30 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 (first-try PASS: 1, re-dispatched: 0, skipped: 0)
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Commits:** 1
+
+---
+
+## 2026-06-19 -- Task verified and completed: plugin-003 - Version-aware skill dispatch
+
+**Type:** Work / Task completion
+**Task:** plugin-003 - Version-aware skill dispatch — use global only when versions match
+**Summary:** bin/dispatch.sh added as version-aware dispatch helper; all four skill files now delegate to it in one line; global kanban used only on exact version match, otherwise bundled with stderr warning.
+**Verification:** PASS (iteration 1)
+**Commit:** 4fb8c01
+**Files changed:** 7
+**Tests added:** 6
+**ADRs written:** none
+
+---
+
 ## 2026-06-19 -- Batch started: [plugin-003]
 
 **Type:** Work / Batch start

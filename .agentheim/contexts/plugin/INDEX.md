@@ -11,8 +11,8 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 1
-- **Done:** 2
+- **Doing:** 0
+- **Done:** 3
 <!-- task-counts:end -->
 
 ### Todo
@@ -21,11 +21,11 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
-- **plugin-003** — Version-aware skill dispatch — use global only when versions match — `doing/plugin-003-version-aware-skill-dispatch.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **plugin-003** — Version-aware skill dispatch — use global only when versions match — 2026-06-19 — `done/plugin-003-version-aware-skill-dispatch.md`
 - **plugin-002** — Migrate skills to call CLI dispatcher (hybrid local/global) — 2026-06-19 — `done/plugin-002-skills-call-cli-dispatcher.md`
 - **plugin-001** — Project README — what it is, how to install and update — 2026-06-10 — `done/plugin-001-project-readme.md`
 <!-- done-list:end -->
