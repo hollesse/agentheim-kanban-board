@@ -12,7 +12,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 - **Backlog:** 0
 - **Todo:** 0
 - **Doing:** 0
-- **Done:** 8
+- **Done:** 9
 <!-- task-counts:end -->
 
 ### Todo
@@ -25,6 +25,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Done (most recent first)
 <!-- done-list:start -->
+- **infrastructure-009** — Release script: `scripts/release.sh <version>` — 2026-06-19 — `done/infrastructure-009-release-script.md`
 - **infrastructure-008** — Tag-triggered npm publish via GitHub Actions (OIDC trusted publishing) — 2026-06-19 — `done/infrastructure-008-gh-action-tag-publish.md`
 - **infrastructure-007** — First npm publish: ship agentheim-kanban-board to the registry (live as v1.0.0) — 2026-06-19 — `done/infrastructure-007-npm-publish.md`
 - **infrastructure-004** — CLI entry point: invoke kanban skills from the command line (tracker — closed after children done) — 2026-06-19 — `done/infrastructure-004-cli-entry-point.md`

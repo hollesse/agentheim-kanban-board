@@ -5,6 +5,16 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Task captured + completed inline: infrastructure-009 - Release script
+
+**Type:** Model + Work / Inline completion
+**BC:** infrastructure
+**Filed to:** done (captured-and-closed)
+**Summary:** `scripts/release.sh <version>` ersetzt das manuelle Bump-Commit-Tag-Push-Ritual durch ein Single-Command-Release-Tool mit Pre-Flight-Checks (branch, clean tree, sync mit origin, Tag/Version-Verfügbarkeit) und Konfirmations-Prompt. README's `## Releasing` Sektion zeigt das Skript als primären Pfad, das manuelle Verfahren als Fallback. Direkt geschrieben statt Worker-Spawn — kleines, gut umrissenes Skript, voller Kontext aus den vorigen Tasks.
+**Negative Smoke:** kein-Arg → usage, "notsemver" → rejected, "1.1" → rejected. Positive Smoke kommt beim nächsten echten Release-Bump.
+
+---
+
 ## 2026-06-19 -- Work session ended
 
 **Type:** Work / Session end

@@ -78,11 +78,19 @@ claude plugin update agentheim-kanban-board
 
 Releases are published to npm automatically when a `v*` tag is pushed. The GitHub Action verifies version sync between `package.json`, `.claude-plugin/plugin.json`, and the git tag, then publishes via npm Trusted Publishing (OIDC) — no token secrets required, with provenance attestation.
 
-Release procedure:
+### One-liner: `scripts/release.sh <version>`
+
+```bash
+scripts/release.sh 1.2.3
+```
+
+The script handles bump + commit + tag + push in one go, with pre-flight checks (clean tree, on main, in sync with origin, tag/version not in use, tarball validates). It prints the plan and asks for confirmation before pushing.
+
+### Manual procedure (if you prefer)
 
 1. Bump the `version` field in **both** `package.json` and `.claude-plugin/plugin.json` to the same string.
-2. Commit on `main` (e.g., `chore: release v1.2.3`).
-3. Tag and push: `git tag -a v1.2.3 -m "Release 1.2.3" && git push --tags`.
+2. Commit on `main` (e.g., `release: v1.2.3`).
+3. Tag and push: `git tag -a v1.2.3 -m "Release 1.2.3" && git push origin main --follow-tags`.
 4. Watch the GitHub Actions tab — the `Publish to npm` workflow should go green.
 5. Verify the new version on [npmjs.com/package/agentheim-kanban-board](https://www.npmjs.com/package/agentheim-kanban-board) and confirm the provenance badge is present.
 
