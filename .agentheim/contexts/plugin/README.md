@@ -29,7 +29,7 @@ Supporting — enables the core (board) to be reached conveniently, but contains
 - `OpenBoard` — open the board URL in the browser (server must already be running)
 - `CheckStatus` — report whether a server is running and on which port
 
-These commands are delegated by the skill files to the `kanban` CLI (see ADR-0006): each skill body uses a hybrid local/global dispatch — preferring a globally installed `kanban` binary on PATH, falling back to the plugin-bundled `bin/kanban.js`. Lifecycle logic lives in `lib/lifecycle.js`; the skills carry no Bash lock-file logic of their own.
+These commands are delegated by the skill files to `bin/dispatch.sh` (see ADR-0006, ADR-0009): the dispatch helper uses the global `kanban` binary only when its version exactly matches the plugin's own version (from `package.json`). On a version mismatch it falls back to the bundled `bin/kanban.js` and prints a stderr warning with both fix paths. When no global `kanban` is found the bundled binary is used silently. Lifecycle logic lives in `lib/lifecycle.js`; the skills carry no Bash lock-file logic of their own.
 
 ## Relationships with other contexts
 - **Upstream of:** board — manages its process lifecycle

@@ -5,6 +5,23 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Batch started: [plugin-003]
+
+**Type:** Work / Batch start
+**Tasks:** plugin-003 - Version-aware skill dispatch — use global only when versions match
+**Parallel:** no (1 worker)
+
+---
+
+## 2026-06-19 -- Model / Captured: plugin-003 - Version-aware skill dispatch
+
+**Type:** Model / Capture
+**BC:** plugin
+**Filed to:** todo
+**Summary:** The four skill files should only use the globally installed `kanban` binary when its version matches the plugin's own version (exact match). On mismatch, fall back to the bundled binary and print a stderr warning with both fix paths (update global npm install, or reinstall the plugin).
+
+---
+
 ## 2026-06-19 -- Work session ended
 
 **Type:** Work / Session end

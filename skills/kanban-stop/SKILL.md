@@ -6,13 +6,9 @@ description: Stop the Agentheim Kanban board server for the current project. Use
 # kanban-stop
 
 Stop the running Kanban board server. Delegates to the `kanban` CLI
-(or the in-plugin binary as fallback) — see ADR-0006.
+via the version-aware dispatch helper — see ADR-0006 and ADR-0009.
 
 ```bash
 PLUGIN_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-if command -v kanban >/dev/null 2>&1; then
-  kanban stop
-else
-  node "$PLUGIN_ROOT/bin/kanban.js" stop
-fi
+bash "$PLUGIN_ROOT/bin/dispatch.sh" stop
 ```

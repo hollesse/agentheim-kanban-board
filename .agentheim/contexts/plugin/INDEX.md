@@ -11,7 +11,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 <!-- task-counts:start -->
 - **Backlog:** 0
 - **Todo:** 0
-- **Doing:** 0
+- **Doing:** 1
 - **Done:** 2
 <!-- task-counts:end -->
 
@@ -21,6 +21,7 @@ Catalog of everything in this bounded context: tasks by status, ADRs scoped to t
 
 ### Doing
 <!-- doing-list:start -->
+- **plugin-003** — Version-aware skill dispatch — use global only when versions match — `doing/plugin-003-version-aware-skill-dispatch.md`
 <!-- doing-list:end -->
 
 ### Done (most recent first)
