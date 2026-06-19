@@ -6,6 +6,7 @@ status: accepted
 date: 2026-06-10
 supersedes: []
 superseded_by: []
+amended_by: [0008]
 related_tasks: [infrastructure-001]
 ---
 

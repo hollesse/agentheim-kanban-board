@@ -29,6 +29,35 @@ claude plugins install agentheim-kanban-board
 | `/kanban-open` | Opens the board in the browser without restarting the server (server must already be running). |
 | `/kanban-status` | Reports whether the server is running and on which port. |
 
+## CLI (alternative to slash commands)
+
+The plugin also ships a terminal CLI, `kanban`, that exposes the same four lifecycle operations as the slash-command skills. Use it when you want to start, stop, or check the board without Claude Code running.
+
+### Install
+
+The CLI is opt-in — plugin users who only use the slash commands need to install nothing. To put `kanban` on your PATH, clone the plugin repo and run `npm link` in it:
+
+```bash
+git clone https://github.com/hollesse/agentheim-kanban-board
+cd agentheim-kanban-board
+npm link
+```
+
+This requires Node.js 18+. There are no runtime dependencies; `npm link` only creates the symlink for the `kanban` binary.
+
+### Usage
+
+Run `kanban` from inside any Agentheim project (the directory that contains `.agentheim/`):
+
+```bash
+kanban start    # start the server and open the browser
+kanban status   # exit 0 if running, 1 otherwise — script-friendly
+kanban open     # open the browser without restarting the server
+kanban stop     # stop the running server
+```
+
+The CLI and the slash commands share the same lock file at `.agentheim/.kanban.lock`. Starting via one surface and stopping via the other works — both consume the same lifecycle module.
+
 ## Updating
 
 ```bash

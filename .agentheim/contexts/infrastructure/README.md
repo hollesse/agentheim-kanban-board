@@ -31,6 +31,9 @@ Exported by `lib/lifecycle.js` (see [ADR-0007](../../knowledge/decisions/0007-li
 - `open({ root })` — open the board URL in the user's default browser (cross-platform)
 - Helpers: `lockPath`, `readLock`, `writeLock`, `deleteLock`, `isAlive`, `openBrowser`
 
+Exposed via the `kanban` CLI binary at `bin/kanban.js` (see [ADR-0006](../../knowledge/decisions/0006-cli-second-delivery-surface.md) and [ADR-0008](../../knowledge/decisions/0008-packaging-bin-zero-deps.md)):
+- `kanban start | stop | status | open` — terminal-facing second delivery surface; both CLI and plugin skills consume the same lifecycle module.
+
 ## Relationships with other contexts
 - **Shared kernel with:** plugin, board — provides the runtime and build environment both depend on
 
