@@ -5,6 +5,33 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Work session ended
+
+**Type:** Work / Session end
+**Completed:** 1 ([infrastructure-008] — tag-triggered publish pipeline live)
+**Bounced:** 0
+**Failed:** 0
+**Escalated after verification:** 0
+**Verification:** SKIPPED — same non-standard split as -007 (worker writes workflow, user triggers smoke release by tag push); verified end-to-end via the v1.0.2 smoke run.
+**Commits:** 4 (1 worker prep + 1 housekeeping + 1 debug roundtrip + 1 cleanup) + 1 release commit by user
+**External effects:** v1.0.2 published live to npm via the new GH Action; tag v1.0.2 on remote; release pipeline now triggers automatically on `v*` tag push.
+
+---
+
+## 2026-06-19 -- Task completed: infrastructure-008 - Tag-triggered GH Action publish
+
+**Type:** Work / Task completion
+**Task:** infrastructure-008 - Tag-triggered npm publish via GitHub Actions (OIDC trusted publishing)
+**Summary:** `.github/workflows/publish.yml` triggers on `v*` tag push, verifies version sync (tag ↔ package.json ↔ plugin.json), runs `npm pack --dry-run`, and publishes via OIDC Trusted Publishing with provenance attestation. Smoke release v1.0.2 succeeded end-to-end.
+**Verification:** SKIPPED — non-standard split
+**Commit:** 35477c8 (cleanup of diagnostic step) — see also 06c257d (initial workflow) and 1.0.2 smoke
+**Files changed:** 4 (workflow file, root README, ADR-0009 extended, BC README)
+**Diagnostic note:** First three attempts (against v1.0.1) failed with a 404 on PUT despite a correct Trusted Publisher config. Root cause: GitHub-hosted runner ships **npm 10.9.8**, but Trusted Publishing requires **npm CLI >= 11.5.1**. Without the upgrade, npm falls back to token-auth, tries the setup-node placeholder token, and the registry returns 404. Workflow now upgrades npm to latest as a permanent step (with comment); diagnostic OIDC claim-dump step removed after the fix landed.
+**Smoke release:** v1.0.2 via tag push (https://github.com/hollesse/agentheim-kanban-board/actions/runs/27824262845)
+**Published:** https://www.npmjs.com/package/agentheim-kanban-board/v/1.0.2
+
+---
+
 ## 2026-06-19 -- Batch started: [infrastructure-008] (prep-only scope)
 
 **Type:** Work / Batch start
