@@ -1,7 +1,7 @@
 ---
 id: infrastructure-008
 title: "Tag-triggered npm publish via GitHub Actions (OIDC trusted publishing)"
-status: backlog
+status: doing
 type: feature
 context: infrastructure
 created: 2026-06-19

@@ -6,7 +6,7 @@ type: refactor
 context: plugin
 created: 2026-06-19
 completed: 2026-06-19
-commit:
+commit: 7387288
 depends_on: [infrastructure-005, infrastructure-006]
 blocks: []
 tags: [skills, refactor, lifecycle, deduplication, hybrid-dispatch]

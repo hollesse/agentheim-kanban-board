@@ -5,6 +5,23 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Batch started: [infrastructure-008] (prep-only scope)
+
+**Type:** Work / Batch start
+**Tasks:** infrastructure-008 - Tag-triggered npm publish via GitHub Actions (worker writes workflow + README + ADR; user does smoke release via tag push)
+**Parallel:** no (1 worker)
+**Pre-conditions met:** npmjs.com Trusted Publisher configured (workflow `publish.yml`, 2FA + disallow tokens); -007 done; package live on npm.
+
+---
+
+## 2026-06-19 -- Model / Promoted: infrastructure-008 - Tag-triggered GH Action publish
+
+**Type:** Model / Promote
+**BC:** infrastructure
+**From → To:** backlog → todo → doing (work started immediately)
+
+---
+
 ## 2026-06-19 -- Work session ended
 
 **Type:** Work / Session end
