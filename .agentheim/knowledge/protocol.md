@@ -5,6 +5,16 @@ Newest entries on top.
 
 ---
 
+## 2026-06-19 -- Model / Refined: plugin-002 - Skills call CLI dispatcher
+
+**Type:** Model / Refine
+**BC:** plugin
+**Status after:** backlog (ready to promote)
+**Summary:** Pure-Pfad-Aufruf zu Hybrid-Dispatch erweitert: `command -v kanban` zuerst prüfen, sonst Fallback auf `node $PLUGIN_ROOT/bin/kanban.js`. Gibt Plugin-Usern weiterhin Zero-Install, Terminal-Usern automatisch die saubere `kanban`-Erfahrung bei globaler Installation. Auto-Install im Skill explizit ausgeschlossen (AV/sudo/Orphan-Risiken, untergräbt ADR-0005). related_adrs ergänzt um 0006.
+**ADRs written:** none
+
+---
+
 ## 2026-06-19 -- Work session ended
 
 **Type:** Work / Session end
