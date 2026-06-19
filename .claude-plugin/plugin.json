@@ -1,6 +1,6 @@
 {
   "name": "agentheim-kanban-board",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Kanban board for Agentheim projects: visualise .agentheim/ task files as a live board in the browser",
   "author": {
     "name": "Joshua Töpfer"
