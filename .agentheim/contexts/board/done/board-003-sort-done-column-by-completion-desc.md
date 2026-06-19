@@ -6,7 +6,7 @@ type: feature
 context: board
 created: 2026-06-19
 completed: 2026-06-19
-commit:
+commit: 3a88607
 depends_on: []
 blocks: []
 tags: [sorting, done-column]
