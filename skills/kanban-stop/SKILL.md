@@ -5,33 +5,14 @@ description: Stop the Agentheim Kanban board server for the current project. Use
 
 # kanban-stop
 
-Stop the running Kanban board server.
+Stop the running Kanban board server. Delegates to the `kanban` CLI
+(or the in-plugin binary as fallback) — see ADR-0006.
 
-## Steps
-
-1. **Read the lock file.** Check `.agentheim/.kanban.lock` in the current working directory:
-   ```bash
-   LOCK=".agentheim/.kanban.lock"
-   if [ ! -f "$LOCK" ]; then
-     echo "No lock file found — the Kanban board does not appear to be running."
-     exit 0
-   fi
-   PID=$(node -e "const l=require('fs').readFileSync('$LOCK','utf8'); process.stdout.write(String(JSON.parse(l).pid))")
-   PORT=$(node -e "const l=require('fs').readFileSync('$LOCK','utf8'); process.stdout.write(String(JSON.parse(l).port))")
-   ```
-
-2. **Check liveness and kill:**
-   ```bash
-   if kill -0 "$PID" 2>/dev/null; then
-     kill "$PID"
-     echo "Kanban board server (PID $PID, port $PORT) stopped."
-   else
-     echo "Process $PID is not running (stale lock file)."
-   fi
-   ```
-
-3. **Delete the lock file:**
-   ```bash
-   rm -f "$LOCK"
-   echo "Lock file removed."
-   ```
+```bash
+PLUGIN_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+if command -v kanban >/dev/null 2>&1; then
+  kanban stop
+else
+  node "$PLUGIN_ROOT/bin/kanban.js" stop
+fi
+```
