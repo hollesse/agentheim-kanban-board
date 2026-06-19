@@ -6,7 +6,7 @@ type: chore
 context: infrastructure
 created: 2026-06-19
 completed: 2026-06-19
-commit: aeb6451
+commit: d9913e8
 depends_on: [infrastructure-008]
 blocks: []
 tags: [release, dx, scripting, automation]
